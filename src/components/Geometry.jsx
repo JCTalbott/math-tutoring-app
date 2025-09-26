@@ -36,10 +36,18 @@ export default function Geometry() {
   function generateNewQuestion() {
     const angles = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
     const angle1 = angles[Math.floor(Math.random() * angles.length)];
-    const possiblePairs = Object.keys(ANGLE_RELATIONSHIPS[angle1]);
+    const pairs = new Set();
+    if (ANGLE_RELATIONSHIPS[angle1]) {
+      Object.keys(ANGLE_RELATIONSHIPS[angle1]).forEach(a => pairs.add(a));
+    }
+    Object.keys(ANGLE_RELATIONSHIPS).forEach(a => {
+      if (ANGLE_RELATIONSHIPS[a][angle1]) {
+        pairs.add(a);
+      }
+    });
+    const possiblePairs = Array.from(pairs);
     const angle2 = possiblePairs[Math.floor(Math.random() * possiblePairs.length)];
-    const correctAnswer = ANGLE_RELATIONSHIPS[angle1][angle2];
-    
+    const correctAnswer = ANGLE_RELATIONSHIPS[angle1]?.[angle2] || ANGLE_RELATIONSHIPS[angle2]?.[angle1];
     // Generate wrong answers
     const wrongAnswers = Object.keys(ANGLE_VOCAB)
       .filter(term => term !== correctAnswer)
