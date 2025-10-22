@@ -279,6 +279,19 @@ body {
 }
 
 /* Geometry Styles */
+.topic-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+.topic-link:hover {
+  color: #4a90e2;
+}
+
 .geometry-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -664,9 +677,235 @@ body {
   color: #333;
 }
 
+/* Geometric Transformations Styles */
+.coordinate-inputs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.parentheses-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.parentheses {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.comma {
+  font-size: 2rem;
+  color: #333;
+  margin: 0 4px;
+}
+
+.coordinate-input {
+  width: 60px;
+  padding: 8px 4px;
+  border: none;
+  border-bottom: 3px solid #e1e5e9;
+  background: transparent;
+  font-size: 1.8rem;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  color: #333;
+  transition: border-color 0.3s ease;
+  -moz-appearance: textfield; /* Firefox */
+}
+
+.coordinate-input::-webkit-outer-spin-button,
+.coordinate-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.coordinate-input:focus {
+  outline: none;
+  border-bottom-color: #667eea;
+}
+
+.coordinate-input::placeholder {
+  color: #999;
+  font-size: 1.5rem;
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.hint-button {
+  background: #ffc107;
+  color: #333;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.hint-button:hover {
+  background: #e0a800;
+  transform: translateY(-1px);
+}
+
+.hint-popup {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #fff3cd;
+  border: 2px solid #ffc107;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  animation: slideInFade 0.3s ease-out;
+  max-width: 250px;
+}
+
+.hint-content {
+  color: #856404;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+@keyframes slideInFade {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.transformations-reference {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+.transformations-reference h3 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.transformations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.transformation-rule {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+}
+
+.transformation-rule h4 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.transformation-rule ul {
+  list-style: none;
+  padding: 0;
+}
+
+.transformation-rule li {
+  margin-bottom: 8px;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  transition: all 0.5s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.transformation-rule li.hidden-rule {
+  opacity: 0;
+  transform: translateY(-10px);
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    height: auto;
+    margin-bottom: 8px;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+    height: 0;
+    margin-bottom: 0;
+  }
+}
+
+.transformation-rule strong {
+  color: #333;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .geometry-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .parentheses-input {
+    font-size: 1.5rem;
+  }
+  
+  .parentheses {
+    font-size: 2rem;
+  }
+  
+  .coordinate-input {
+    width: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .coordinate-input::placeholder {
+    font-size: 1.2rem;
+  }
+  
+  .question-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .hint-popup {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 10px 0;
+    max-width: 100%;
+  }
+  
+  .transformations-grid {
     grid-template-columns: 1fr;
   }
   

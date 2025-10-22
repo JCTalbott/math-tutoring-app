@@ -1,0 +1,22 @@
+.equation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+}
+
+.coefInput {
+  width: 3ch;
+  text-align: center;
+}
+
+.coefInput::-webkit-outer-spin-button,
+.coefInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove number input arrows (Firefox) */
+.coefInput[type=number] {
+  -moz-appearance: textfield;
+}

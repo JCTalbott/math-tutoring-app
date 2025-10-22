@@ -102,8 +102,8 @@ export default function Geometry() {
   return (
     <div className="geometry-container">
       <header className="section-header">
-        <button onClick={() => navigate('/dashboard')} className="back-button">
-          ← Back to Dashboard
+        <button onClick={() => navigate('/geometry')} className="back-button">
+          ← Back to List
         </button>
         <h1>Geometry Practice</h1>
         <div className="score">
@@ -114,14 +114,11 @@ export default function Geometry() {
       <div className="geometry-content">
         <div className="diagram-container">
           <svg viewBox="0 0 400 300" className="geometry-diagram">
-            {/* Parallel lines */}
             <line x1="25" y1="125" x2="350" y2="125" stroke="#333" strokeWidth="3" />
             <line x1="25" y1="200" x2="350" y2="200" stroke="#333" strokeWidth="3" />
             
-            {/* Transversal */}
             <line x1="50" y1="70" x2="325" y2="250" stroke="#666" strokeWidth="3" />
             
-            {/* Angle labels */}
             <text textAnchor="middle" dominantBaseline="middle" x="100" y="115" className="angle-label">A</text>
             <text textAnchor="middle" dominantBaseline="middle" x="140" y="117" className="angle-label">B</text>
             <text textAnchor="middle" dominantBaseline="middle" x="125" y="143" className="angle-label">C</text>

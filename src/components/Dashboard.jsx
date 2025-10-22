@@ -28,10 +28,11 @@ export default function Dashboard() {
       <div className="sections-grid">
         <div className="section-card" onClick={() => navigate('/geometry')}>
           <h2>📐 Geometry</h2>
-          <p>Practice angle relationships with parallel lines and transversals</p>
+          <p>Practice angle relationships, transformations, and right triangle trigonometry</p>
           <div className="section-tags">
             <span className="tag">Angle Pairs</span>
-            <span className="tag">Parallel Lines</span>
+            <span className="tag">Transformations</span>
+            <span className="tag">SOH CAH TOA</span>
           </div>
         </div>
 
